@@ -7,9 +7,9 @@ export const Sent = () => {
     <>
       <h1>Sent Mail</h1>
       <ul>
-        {mails.sentEmails.map((item) => (
+        {mails?.sentEmails?.map((item) => (
           <li>
-            <NavLink>{item.subject}</NavLink>
+            <NavLink to={`/detailMail/${item.id}`}>{item.subject}</NavLink>
           </li>
         ))}
       </ul>

@@ -7,9 +7,9 @@ export const Inbox = () => {
     <>
       <h1>Inbox Page</h1>
       <ul>
-        {mails.emails.map((item) => (
+        {mails?.emails?.map((item) => (
           <li>
-            <NavLink>{item.subject}</NavLink>
+            <NavLink to={`/detailMail/${item.id}`}>{item.subject}</NavLink>
           </li>
         ))}
       </ul>
