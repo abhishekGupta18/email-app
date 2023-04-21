@@ -4,7 +4,7 @@ import { useMailContext } from "../Context/MailsContext";
 export const ShowMail = () => {
   const { mails } = useMailContext();
   const { mailId } = useParams();
-  console.log(mails);
+
   const findMail =
     mails?.emails?.find((item) => item?.id === Number(mailId)) ??
     mails?.sentEmails?.find((item) => item?.id === Number(mailId));

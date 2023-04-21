@@ -17,12 +17,31 @@ export const MailContextProvider = ({ children }) => {
     }
   };
 
+  const clickHandler = (id) => {
+    const newList = { ...mails };
+    const markAsRead = newList?.emails?.map((item) => {
+      if (item.id === id) {
+        return { ...item, read: true };
+      } else {
+        return item;
+      }
+    });
+    // console.log(markAsRead);
+    setMails({ ...newList, emails: markAsRead }); // niharika Op
+  };
+  const readEmail = mails?.emails?.filter((item) => item.read);
+  const unReadEmail = mails?.emails?.filter((item) => !item.read);
+
   useEffect(() => {
     getMails();
   }, []);
 
   return (
-    <MailContext.Provider value={{ mails }}>{children}</MailContext.Provider>
+    <MailContext.Provider
+      value={{ mails, readEmail, unReadEmail, clickHandler }}
+    >
+      {children}
+    </MailContext.Provider>
   );
 };
 
